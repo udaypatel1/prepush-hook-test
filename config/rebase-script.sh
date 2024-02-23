@@ -4,7 +4,7 @@
 commits=$(git rev-list --count @{u}..HEAD)
 
 # Check if there are any commits to rebase
-if [ $commits -eq 0 ]; then
+if [ $commits -eq 1 ]; then
     echo "No commits to rebase."
     exit 0
 fi
