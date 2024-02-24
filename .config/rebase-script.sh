@@ -5,7 +5,7 @@ commits=$(git rev-list --count @{u}..HEAD)
 
 # Check if there are any commits to rebase
 if [ $commits -eq 1 ]; then
-    echo "No commits to rebase."
+    echo "\nNo local commits to squash\n"
     exit 0
 fi
 
@@ -13,10 +13,10 @@ fi
 git reset --soft HEAD~$((commits-1))
 
 # Prompt user to enter a new commit message for the squashed commit
-echo "Enter a new commit message for the squashed commit:"
+echo "\nEnter a new commit message for the squashed commit:\n"
 read new_commit_message
 
 # Amend the squashed commit with the new commit message
 git commit --amend -m "$new_commit_message"
 
-echo "Rebase complete. Squashed commits and amended message."
+echo "\nRebase Complete! Squashed commits and amended message\n"
